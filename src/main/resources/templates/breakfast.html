@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <title>CookBook</title>
+    <link th:href="@{https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/cyborg/bootstrap.min.css}" rel="stylesheet" integrity="sha384-HOjmaybB3GQTM8HunY46MvK7ngm9b/eRGOWESCQ/s+Vk4omobTY5+FXqurpSFcbz" crossorigin="anonymous"/>
+    <link rel="stylesheet" th:href="@{/bootstrap.css}"/>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+
+    <script type="text/javascript" th:src="@{/jquery.js}"></script>
+    <script type="text/javascript" th:src="@{/bootstrap.js}"></script>
+    <script type="text/javascript" th:src="@{/client.js}"></script>
+
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation" style="">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor02">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="http://localhost:8080">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/breakfast">Breakfast</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/lunch">Lunch</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="http://localhost:8080/dinner">Dinner</a>
+            </li> <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/dessert">Desserts</a>
+        </li>
+            <li class="nav-item">
+            <a class="nav-link" href="http://localhost:8080/addRecipe">Add Recipe</a>
+        </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+<body>
+<div class="jumbotron">
+    <h1 class="display-3">Breakfast!</h1>
+    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+    <hr class="my-4"/>
+    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+    <p class="lead">
+        <button id="btnBreakfast" class="btn btn-info">Recipes</button>
+    </p>
+</div>
+
+
+<div class="breakfastContainer">
+
+</div>
+</body>
+</html>
