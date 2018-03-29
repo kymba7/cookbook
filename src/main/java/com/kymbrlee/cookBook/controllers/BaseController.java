@@ -4,8 +4,10 @@ import com.kymbrlee.cookBook.model.Recipe;
 import com.kymbrlee.cookBook.repository.RecipeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -13,6 +15,12 @@ import java.util.List;
 
 public class BaseController {
     @Autowired
+    RecipeRepository recipeRepository;
+    @RequestMapping("/getByCategory/{category}")
+    public @ResponseBody
+    List<Recipe> getByCategory(@PathVariable String category){
+        return recipeRepository.getByCategory(category);
+    }
     @RequestMapping("/breakfast")
     public String breakfast(){
         return "breakfast";

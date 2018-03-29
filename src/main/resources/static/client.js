@@ -3,14 +3,14 @@ $(document).ready(function(){
 });
 function init() {
     enable();
-
+getByCategory();
 }
 function enable(){
     $("#btnSubmit").on("click", postRecipe);
     $("#btnBreakfast").on("click",getBreakfastRecipe);
-    // $("#btnLunch").on("click",getLunchRecipe);
-    // $("#btnDinner").on("click",getDinnerRecipe);
-    // $("#btnDessert").on("click",getDessertRecipe);
+    $("#btnLunch").on("click",getLunchRecipe);
+    $("#btnDinner").on("click",getDinnerRecipe);
+    $("#btnDessert").on("click",getDessertRecipe);
     $(".breakfastContainer").on("click", ".deleteBtn", deleteRecipe);
     $("#makeBtn").on("click", make);
 
@@ -19,7 +19,7 @@ function getBreakfastRecipe(){
     event.preventDefault();
     $.ajax({
         type: "GET",
-        url: "/recipes",
+        url: "/getByCategory/",
         success: function (response) {
             console.log("Let's eat Breakfast");
             appendRecipeBreakfast(response._embedded.recipes);
@@ -58,6 +58,7 @@ function getBreakfastRecipe(){
         }),
         success: function (response) {
             // getRecipe();
+            addRecipe();
             console.log("I've posted it")
         }
     });
@@ -74,7 +75,7 @@ function getBreakfastRecipe(){
             type: "DELETE",
             url: "/recipes/" + $(this).data("id"),
             success: function(response){
-                getRecipe();
+                getBreakfastRecipe();
                 }
                 })
     }
@@ -138,7 +139,10 @@ function appendRecipeBreakfast(recipeList) {
 
         el.append("<div class='col-md-10 col-md-offset-1'></div>");
         el = el.children().last();
-        el.append("<span>" + recipe.recipeName + " " + "</span>");
+        el.append("<span>" + recipe.recipeName + " " + "</span>"+
+            "<span>" + recipe.ingredients + " - </span>" +
+             "<span>" + recipe.directions + " </span>");
+
         el.append("<button class='btn btn-danger deleteBtn'>Delete</button>");
         el.children().last().data("id", recipe.id); //Imprints, data-id="recipe.id" onto the button element
 
