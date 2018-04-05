@@ -16,11 +16,13 @@ import java.util.List;
 public class BaseController {
     @Autowired
     RecipeRepository recipeRepository;
+
     @RequestMapping("/getByCategory/{category}")
     public @ResponseBody
     List<Recipe> getByCategory(@PathVariable String category){
-        return recipeRepository.getByCategory(category);
+        return recipeRepository.findByCategory(category);
     }
+
     @RequestMapping("/breakfast")
     public String breakfast(){
         return "breakfast";

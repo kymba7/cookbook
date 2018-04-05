@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="http://localhost:8080">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="http://localhost:8080/breakfast">Breakfast</a>
@@ -41,8 +41,8 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search"/>
-            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            <input id="search_recipe" class="form-control mr-sm-2" type="text" placeholder="Search"/>
+            <button id="apicall" class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
         </form>
     </div>
 </nav>
@@ -57,11 +57,11 @@
 
     <body>
 
-    <div class="jumbotron">
+    <div class="jumbotron text-center">
         <h1 class="display-3">HAVE YOU EATEN?</h1>
         <p class="lead"> Recipes of Home. </p>
         <hr class="my-4"/>
-        <p>You can also search for recipes by ingredients.</p>
+        <p>You can also search for recipes by ingredients in the above search box.</p>
         <p class="lead">
             <a class="btn btn-primary btn-lg" href="http://localhost:8080/addRecipe" role="button">Add a Recipe</a>
         </p>
@@ -87,15 +87,18 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <!--<div class="jumbotron text-center" style="margin-bottom:0">-->
-        <!--<h1>Have you Eaten?</h1>-->
-        <!--<h2>Recipes Of Home!</h2>-->
-    <!--</div>-->
+    <div class="container" id="searchResults">
+        <div class="card-header"></div>
+        <div class="card-body">
 
+            <h4 class="card-title" id="recipeTitle"> </h4>
+            <p class="card-text" id="recipeIngredients"></p>
+            <span id="recipeImage"> </span>
+            <button id="recipeLink"> </button>
+            <button id="nextBtn">Next</button>
+            <button id="prevBtn">Previous </button>
 
-
-
-
-
+        </div>
+    </div>
      </body>
 </html>

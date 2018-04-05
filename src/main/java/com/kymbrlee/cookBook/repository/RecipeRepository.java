@@ -9,20 +9,5 @@ import java.util.List;
 
 @Component
 public interface RecipeRepository extends MongoRepository<Recipe, String> {
-      List<Recipe> recipeList = new ArrayList<>();
-
-    public List<Recipe> getByCategory(String category) {
-        List<Recipe> foundRecipes = new ArrayList<>();
-
-        for (Recipe recipe : recipeList) {
-            switch(recipe.getCategory().equals(category)) {
-
-                case "breakfast":
-
-            }
-        }
-
-        return foundRecipes;
-    }
-
+    List<Recipe> findByCategory(String category);
 }
